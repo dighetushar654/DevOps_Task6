@@ -1,7 +1,7 @@
 job('task6-job1') {
     description('This is job1')
         scm {
-                 github('kingslayer227/DevOps_Task-6.git','master')
+                 github('dighetushar654/DevOps_Task_6.git','master')
      }
      steps {
                  shell("cp * -vrf /root/t111")
@@ -18,7 +18,7 @@ job('task6-job1') {
 job('task6-job2') {
      description('This is job2')
           scm {
-                  github('kingslayer227/DevOps_Task-6.git','master')
+                  github('dighetushar654/DevOps_Task_6.git','master')
                   }
           triggers {
                            upstream('task6-job1','SUCCESS')
@@ -47,7 +47,7 @@ job('task6-job3') {
                         }
    steps {
        shell('''
-               status=$(curl -o /dev/null -s -w "%{http_code}" http://192.168.43.187:9001)
+               status=$(curl -o /dev/null -s -w "%{http_code}" http://192.168.99.104:9001)
                if [[ $status == 200 ]]
                then
                       exit 0
@@ -58,7 +58,7 @@ job('task6-job3') {
                        }
     publishers {
          extendedEmail {
-              recipientList('patilprajwal22@gmail.com')
+              recipientList('dighetushar654@gmail.com')
               defaultSubject('Job status')
                  attachBuildLog(attachBuildLog = true)
               defaultContent('Status Report')
